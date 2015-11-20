@@ -424,7 +424,7 @@ $( function() {
 
     chart = d3.select( 'body' ).append( 'svg' )
         .attr( 'class', 'chart' )
-        .attr( 'width', 1100 )
+        .attr( 'width', 1350 )
         .attr( 'height', h )
         .append('g');
 
@@ -449,7 +449,7 @@ $( function() {
     bars.selectAll( 'rect' )
         .data( data )
       .enter().append( 'rect' )
-        .attr( 'x', function( d, i ) { return x( d.country ) -0.5; } )
+        .attr( 'x', function( d, i ) { return x( d.country ) +88; } )
         .attr( 'y', function( d ) { return (h - margin) - y( d.population ) + .5 } )
         .attr( 'width', w )
         .attr( 'height', function( d ) { return y( d.population ) } )
@@ -464,11 +464,11 @@ $( function() {
     yAxis = d3.svg.axis()
         .scale(d3.scale.linear().domain( [0, d3.max( data, function( d ) { return d.population; } )] ).rangeRound( [h - margin, 0] ))
         .tickSize(6, 3, 1)
-        .orient('right');
+        .orient('left');
 
     chart.append('g')
         .attr('class', 'x axis')
-        .attr('transform', 'translate(0, ' + (h - margin) + ')')
+        .attr('transform', 'translate(60, ' + (h - margin) + ')')
         .call(xAxis);
 
     chart.append('g')
