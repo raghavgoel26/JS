@@ -381,26 +381,6 @@ $( function() {
         "Purchasing Power in Billions ( Current International Dollar) - 2012": "15684.75",
         "Purchasing Power in Billions ( Current International Dollar) - 2013": "16237.75"
       },
-      {
-        "Country Name": "European Union",
-        "Area - (Sq. Km.) 2010": "4324782.00",
-        "Population (Millions) - 2010": "501.65",
-        "Population (Millions) - 2011": "502.75",
-        "Population (Millions) - 2012": "503.82",
-        "Population (Millions) - 2013": "504.89",
-        "GDP Billions (US$) - 2010": "16367.10",
-        "GDP Billions (US$) - 2011": "17686.68",
-        "GDP Billions (US$) - 2012": "16673.33",
-        "GDP Billions (US$) - 2013": "17266.94",
-        "Domestic Product Per Capita Income (US$) - 2010": "32626.53",
-        "Domestic Product Per Capita Income (US$) - 2011": "35179.87",
-        "Domestic Product Per Capita Income (US$) - 2012": "33093.82",
-        "Domestic Product Per Capita Income (US$) - 2013": "35199.41",
-        "Purchasing Power in Billions ( Current International Dollar) - 2010": "15212.09",
-        "Purchasing Power in Billions ( Current International Dollar) - 2011": "15770.15",
-        "Purchasing Power in Billions ( Current International Dollar) - 2012": "15993.42",
-        "Purchasing Power in Billions ( Current International Dollar) - 2013": "16213.64"
-      }
     ];
 
     var xColumn="Country Name";
@@ -416,14 +396,31 @@ $( function() {
         xAxis, yAxis;
 
     results = d3.map( json );
+
     results.forEach( function( key, val ) {
         var result = {};
 
         result.country = val[xColumn];
         result.population = val[yColumn]; //parseInt( val.Population.replace( /,/g, '' ), 10 );
-        console.log(result);
+      //  console.log(result);
         data.push( result );
     } );
+
+    console.log(data);
+
+    var l=data.length;
+    for(i=0;i<l;++i)
+    {
+      for(j=i+1;j<l;++j)
+      {
+        if((parseFloat(data[i].population))<(parseFloat(data[j].population)))
+        {
+          var temp=data[i];
+          data[i]=data[j];
+          data[j]=temp;
+        }
+      }
+    }
 
     chart = d3.select( 'body' ).append( 'svg' )
         .attr( 'class', 'chart' )
@@ -435,7 +432,7 @@ $( function() {
         .attr('transform', 'translate(50, 50)');
 
     x = d3.scale.ordinal()
-        .rangeRoundBands( [0, w * 100] )
+        .rangeRoundBands( [0, w * 150] )
 
     x.domain(data.map(function(d) {
       return d.country;
