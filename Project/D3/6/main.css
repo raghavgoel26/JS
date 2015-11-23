@@ -5,6 +5,7 @@
 .chart rect {
 	stroke: white;
     fill: steelblue;
+    width: 40px;
 }
 
 .axis {

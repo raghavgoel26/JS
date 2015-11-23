@@ -1,0 +1,6 @@
+atom version atom 1.2.3
+git version 2.6.1.windows.1
+vagrant version
+Installed Version: 1.7.4
+node --version
+v0.12.7
