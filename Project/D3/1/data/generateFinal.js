@@ -1,4 +1,6 @@
-fs = require('fs')
+fs = require('fs');
+
+
 fs.readFile('datajson.json', 'utf8', function (err,data) {
   if (err) {
     return console.log(err);

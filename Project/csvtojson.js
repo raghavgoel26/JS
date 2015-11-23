@@ -1,4 +1,6 @@
-fs = require('fs')
+fs = require('fs');
+
+
 fs.readFile('datafile.csv', 'utf8', function (err,data) {
   if (err) {
     return console.log(err);
@@ -13,7 +15,8 @@ fs.readFile('datafile.csv', 'utf8', function (err,data) {
   var result = [];
   var headers=lines[0].split(",");
   //console.log(headers);
-    for(var i=1;i<lines.length-2;i++){
+  for(var i=1; i<lines.length-2; i++){
+
     var obj = {};
     var currentline=lines[i].split(",");
     //console.log(currentline);
