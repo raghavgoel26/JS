@@ -1,4 +1,4 @@
-var json = [
+[
   {
     "Country Name": "Argentina",
     "Area - (Sq. Km.) 2010": "2766890.00",
@@ -378,85 +378,5 @@ var json = [
     "Purchasing Power in Billions ( Current International Dollar) - 2011": "15075.68",
     "Purchasing Power in Billions ( Current International Dollar) - 2012": "15684.75",
     "Purchasing Power in Billions ( Current International Dollar) - 2013": "16237.75"
-  },
-];
-
-var json2=[];
-
-var column1="Population (Millions) - 2013";
-var column2="GDP Billions (US$) - 2013"
-
-for(i=0;i<6;++i)
-{
-json2[i]={};
-json2[i].pop=0;
-json2[i].gdp=0;
-}
-json2[0].conti="North America";
-
-for(i=0;i<json.length;++i)
-{
-if(json[i]["Country Name"]=="Canada"||json[i]["Country Name"]=="Mexico" ||json[i]["Country Name"]=="USA")
-{
-json2[0].pop+=parseFloat(json[i][column1]);
-json2[0].gdp+=parseFloat(json[i][column2]);
-}
-}
-
-json2[1].conti="South America";
-
-for(i=0;i<json.length;++i)
-{
-if(json[i]["Country Name"]=="Argentina"||json[i]["Country Name"]=="Brazil")
-{
-json2[1].pop+=parseFloat(json[i][column1]);
-json2[1].gdp+=parseFloat(json[i][column2]);
-}
-}
-
-
-json2[2].conti="Asia";
-
-for(i=0;i<json.length;++i)
-{
-if(json[i]["Country Name"]=="China"||json[i]["Country Name"]=="India" ||json[i]["Country Name"]=="Indonesia"||json[i]["Country Name"]=="Japan" ||json[i]["Country Name"]=="Russia"||json[i]["Country Name"]=="Saudi Arabia" ||json[i]["Country Name"]=="Republic of Korea" )
-{
-json2[2].pop+=parseFloat(json[i][column1]);
-json2[2].gdp+=parseFloat(json[i][column2]);
-}
-}
-
-json2[3].conti="Europe";
-
-for(i=0;i<json.length;++i)
-{
-if(json[i]["Country Name"]=="France"||json[i]["Country Name"]=="Germany" ||json[i]["Country Name"]=="Italy"||json[i]["Country Name"]=="Turkey" ||json[i]["Country Name"]=="United Kingdom")
-{
-json2[3].pop+=parseFloat(json[i][column1]);
-json2[3].gdp+=parseFloat(json[i][column2]);
-}
-}
-
-json2[4].conti="Africa";
-
-for(i=0;i<json.length;++i)
-{
-if(json[i]["Country Name"]=="South Africa")
-{
-json2[4].pop+=parseFloat(json[i][column1]);
-json2[4].gdp+=parseFloat(json[i][column2]);
-}
-}
-
-json2[5].conti="Australia";
-
-for(i=0;i<json.length;++i)
-{
-if(json[i]["Country Name"]=="Australia")
-{
-json2[5].pop+=parseFloat(json[i][column1]);
-json2[5].gdp+=parseFloat(json[i][column2]);
-}
-}
-
-console.log(json2);
+  }
+]
